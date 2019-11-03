@@ -44,7 +44,7 @@ if (t1.getText().toString().length() == 0){
 }else if ( t1!= null) {
 
                     registro.put("nombre", t1.getText().toString()); // nombre del campo de la tabla
-                    bd.insert("departamento", null, registro);// la tabla
+                    bd.insert("usuario", null, registro);// la tabla
 
                     bd.close();
                     Toast.makeText(MainActivity.this, "REGISTRO ALMACENADO", Toast.LENGTH_LONG).show();
@@ -60,7 +60,7 @@ if (t1.getText().toString().length() == 0){
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, municipio.class);
+                Intent i = new Intent(MainActivity.this, Empleado.class);
                 startActivity(i);
             }
         });

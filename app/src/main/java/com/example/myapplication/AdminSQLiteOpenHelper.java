@@ -14,7 +14,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(" create table departamento ( iddep integer primary key autoincrement,nombre text)");
-        db.execSQL(" create table municipio( idmun integer primary key autoincrement,nombre text,iddep INTEGER NOT NULL CONSTRAINT fk_id_dep REFERENCES departamento(iddep) ON DELETE CASCADE ON UPDATE CASCADE)");
+        db.execSQL(" create table municipio( idmun integer primary key autoincrement,nombre text, salario real, iddep INTEGER NOT NULL CONSTRAINT fk_id_dep REFERENCES departamento(iddep) ON DELETE CASCADE ON UPDATE CASCADE)");
 
 
 
@@ -25,7 +25,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL("drop table if exists departamento" );
         db.execSQL(" create table departamento ( iddep integer primary key autoincrement,nombre text)");
         db.execSQL("drop table if exists municipio" );
-        db.execSQL(" create table municipio( idmun integer primary key autoincrement,nombre text,iddep INTEGER NOT NULL CONSTRAINT fk_id_dep REFERENCES departamento(iddep) ON DELETE CASCADE ON UPDATE CASCADE)");
+        db.execSQL(" create table municipio( idmun integer primary key autoincrement,nombre text, salario real, iddep INTEGER NOT NULL CONSTRAINT fk_id_dep REFERENCES departamento(iddep) ON DELETE CASCADE ON UPDATE CASCADE)");
 
 
     }

@@ -31,10 +31,11 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/editText3"
-            android:hint="Salario" />
+            android:hint="Salario"
+            />
 
         <Spinner
             android:layout_width="match_parent"
@@ -43,14 +44,14 @@
             android:layout_marginTop="15dp"/>
 
         <Button
-            android:text="guardar municipio"
+            android:text="Registrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button2"
             android:layout_marginTop="15dp"/>
 
         <Button
-            android:text="ver municipios"
+            android:text="Lista Empleados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button3" />

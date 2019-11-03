@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class municipio extends AppCompatActivity {
     Button b1,b2,b3;
-    EditText t1,t2;
+    EditText t1,t2, t3;
     Spinner sp;
     ListView lista;
     private AdminSQLiteOpenHelper admin;
@@ -31,11 +31,15 @@ public class municipio extends AppCompatActivity {
         setContentView(R.layout.activity_municipio);
         admin = new AdminSQLiteOpenHelper(this, vars.bd, null, vars.version);
         bd = admin.getWritableDatabase();
+        t3 = findViewById(R.id.editText3);
         t2= (EditText) findViewById(R.id.editText2);
         b2 = (Button) findViewById(R.id.button2);
         b3 = (Button) findViewById(R.id.button3);
+
         lista= (ListView) findViewById(R.id.lista);
+
         sp =(Spinner) findViewById(R.id.spinner);
+
         fila = bd.rawQuery("SELECT iddep AS _id, nombre FROM departamento ORDER BY nombre", null);
         SimpleCursorAdapter adapter2 = new SimpleCursorAdapter(this, android.R.layout.simple_spinner_dropdown_item, fila,
                 new String[] {"nombre"}, new int[] {android.R.id.text1}, SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
@@ -52,9 +56,11 @@ public class municipio extends AppCompatActivity {
 
                 if (t2.getText().toString().length() == 0){
                     Toast.makeText(municipio.this, "Por favor llene el campo", Toast.LENGTH_SHORT).show();
-                }else if ( t2!= null){
+                }else if ( t2!= null && t3!=null){
                     registro.put("nombre", t2.getText().toString());
+                    registro.put("salario", t3.getText().toString());
                     registro.put("iddep",sp.getSelectedItemId());//nombre del campo
+
 
 //nombre de la tabla
                     bd.insert("municipio", null, registro);
@@ -79,13 +85,13 @@ public class municipio extends AppCompatActivity {
                     admin = new AdminSQLiteOpenHelper(municipio.this, vars.bd, null, vars.version);
                     bd = admin.getWritableDatabase();
 
-                    Cursor fila = bd.rawQuery("SELECT municipio.idmun,municipio.nombre,departamento.nombre FROM municipio,departamento where municipio.iddep= departamento.iddep", null);
+                    Cursor fila = bd.rawQuery("SELECT municipio.idmun,municipio.nombre,municipio.salario,departamento.nombre FROM municipio,departamento where municipio.iddep= departamento.iddep", null);
                     int cantidad = fila.getCount();// cantidad de registro
                     int i=0;
                     arreglo = new String[cantidad];
                     if (fila.moveToFirst()) {
                         do {
-                            String linea = fila.getInt(0) + "  municipio: " + fila.getString(1)+ "  departamento: " + fila.getString(2);
+                            String linea = fila.getInt(0) + "  Nombre: " + fila.getString(1)+  "Salario " + fila.getDouble(2) + "  Tipo Usuario: " + fila.getString(3);
                             arreglo[i] = linea;
                             i++;
                         } while (fila.moveToNext());

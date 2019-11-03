@@ -39,7 +39,7 @@
             android:id="@+id/editText"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:hint="Nombre Usuario"
+            android:hint="Tipo Usuario"
             />
 
         <Button

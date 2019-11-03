@@ -10,10 +10,15 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <Spinner
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner" />
+            android:text="Registro de Empleado"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textColor="#000"
+            />
+
 
         <EditText
             android:layout_width="match_parent"
@@ -21,13 +26,28 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editText2"
-            android:hint="escribe municipio" />
+            android:hint="Empleado" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:hint="Salario" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_marginTop="15dp"/>
 
         <Button
             android:text="guardar municipio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button2" />
+            android:id="@+id/button2"
+            android:layout_marginTop="15dp"/>
 
         <Button
             android:text="ver municipios"
